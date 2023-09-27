@@ -1,0 +1,54 @@
+[
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "PdfReader",
+        "importPath": "PyPDF2",
+        "description": "PyPDF2",
+        "isExtraImport": true,
+        "detail": "PyPDF2",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_pdf_text",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_pdf_text(pdf_list):\n    text = \"\"\n    for pdf_file in pdf_list:\n        with open(pdf_file, \"rb\") as file:\n            pdf_reader = PdfReader(file)\n            for page in pdf_reader.pages:\n                text += page.extract_text()\n    return text\ndef main():\n    load_dotenv()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def main():\n    load_dotenv()\n    st.set_page_config(page_title=\"Chat PDF\", page_icon=\":books:\")\n    st.title(\":books: Chat with multiple PDF's :books:\")\n    question = st.text_input(\"Ask a question about your documents\")\n    with st.sidebar:\n        st.subheader(\"Enter your pdf files here\")\n        uploaded_files = st.file_uploader(\"Upload your pdf here and click process\", accept_multiple_files=True)\n        if st.button(\"Process\"):\n            if not uploaded_files:",
+        "detail": "app",
+        "documentation": {}
+    }
+]
