@@ -1,5 +1,14 @@
 [
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "streamlit",
         "kind": 6,
         "isExtraImport": true,
@@ -25,12 +34,111 @@
         "documentation": {}
     },
     {
-        "label": "os",
+        "label": "CharacterTextSplitter",
+        "importPath": "langchain.text_splitter",
+        "description": "langchain.text_splitter",
+        "isExtraImport": true,
+        "detail": "langchain.text_splitter",
+        "documentation": {}
+    },
+    {
+        "label": "OpenAIEmbeddings",
+        "importPath": "langchain.embeddings",
+        "description": "langchain.embeddings",
+        "isExtraImport": true,
+        "detail": "langchain.embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "FAISS",
+        "importPath": "langchain.vectorstores",
+        "description": "langchain.vectorstores",
+        "isExtraImport": true,
+        "detail": "langchain.vectorstores",
+        "documentation": {}
+    },
+    {
+        "label": "ConversationBufferMemory",
+        "importPath": "langchain.memory",
+        "description": "langchain.memory",
+        "isExtraImport": true,
+        "detail": "langchain.memory",
+        "documentation": {}
+    },
+    {
+        "label": "ConversationalRetrievalChain",
+        "importPath": "langchain.chains",
+        "description": "langchain.chains",
+        "isExtraImport": true,
+        "detail": "langchain.chains",
+        "documentation": {}
+    },
+    {
+        "label": "ChatOpenAI",
+        "importPath": "langchain.chat_models",
+        "description": "langchain.chat_models",
+        "isExtraImport": true,
+        "detail": "langchain.chat_models",
+        "documentation": {}
+    },
+    {
+        "label": "tiktoken",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
+        "importPath": "tiktoken",
+        "description": "tiktoken",
+        "detail": "tiktoken",
+        "documentation": {}
+    },
+    {
+        "label": "css",
+        "importPath": "HtmlTemplate",
+        "description": "HtmlTemplate",
+        "isExtraImport": true,
+        "detail": "HtmlTemplate",
+        "documentation": {}
+    },
+    {
+        "label": "bot_template",
+        "importPath": "HtmlTemplate",
+        "description": "HtmlTemplate",
+        "isExtraImport": true,
+        "detail": "HtmlTemplate",
+        "documentation": {}
+    },
+    {
+        "label": "user_template",
+        "importPath": "HtmlTemplate",
+        "description": "HtmlTemplate",
+        "isExtraImport": true,
+        "detail": "HtmlTemplate",
+        "documentation": {}
+    },
+    {
+        "label": "css",
+        "kind": 5,
+        "importPath": "HtmlTemplate",
+        "description": "HtmlTemplate",
+        "peekOfCode": "css = '''\n<style>\n.chat-message {\n    padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem; display: flex\n}\n.chat-message.user {\n    background-color: #2b313e\n}\n.chat-message.bot {\n    background-color: #475063",
+        "detail": "HtmlTemplate",
+        "documentation": {}
+    },
+    {
+        "label": "bot_template",
+        "kind": 5,
+        "importPath": "HtmlTemplate",
+        "description": "HtmlTemplate",
+        "peekOfCode": "bot_template = '''\n<div class=\"chat-message bot\">\n    <div class=\"avatar\">\n        <img src=\"https://media.licdn.com/dms/image/D4D03AQEcsOadF5Gi9w/profile-displayphoto-shrink_200_200/0/1690385569478?e=1701302400&v=beta&t=WNlGxmBzhN9VZnlwNmHut3ws7B50TFoNTZhn77ydcLc\" >\n    </div>\n    <div class=\"message\">{{MSG}}</div>\n</div>\n'''\nuser_template = '''\n<div class=\"chat-message user\">",
+        "detail": "HtmlTemplate",
+        "documentation": {}
+    },
+    {
+        "label": "user_template",
+        "kind": 5,
+        "importPath": "HtmlTemplate",
+        "description": "HtmlTemplate",
+        "peekOfCode": "user_template = '''\n<div class=\"chat-message user\">\n    <div class=\"avatar\">\n        <img src=\"https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg\">\n    </div>    \n    <div class=\"message\">{{MSG}}</div>\n</div>\n'''",
+        "detail": "HtmlTemplate",
         "documentation": {}
     },
     {
@@ -38,7 +146,43 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def get_pdf_text(pdf_list):\n    text = \"\"\n    for pdf_file in pdf_list:\n        with open(pdf_file, \"rb\") as file:\n            pdf_reader = PdfReader(file)\n            for page in pdf_reader.pages:\n                text += page.extract_text()\n    return text\ndef main():\n    load_dotenv()",
+        "peekOfCode": "def get_pdf_text(pdf_list):\n    text = \"\"\n    for pdf_file in pdf_list:\n        with open(pdf_file, \"rb\") as file:\n            pdf_reader = PdfReader(file)\n            for page in pdf_reader.pages:\n                text += page.extract_text()\n    return text\ndef get_chunks(text):\n    text_splitter = CharacterTextSplitter(",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_chunks",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_chunks(text):\n    text_splitter = CharacterTextSplitter(\n        separator=\"\\n\",\n        chunk_size=1000,\n        chunk_overlap=200,\n        length_function=len\n    )\n    chunks = text_splitter.split_text(text)\n    return chunks\ndef get_vectorstores(chunks):",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_vectorstores",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_vectorstores(chunks):\n    embedings = OpenAIEmbeddings()\n    vectorestore = FAISS.from_texts(texts=chunks, embedding=embedings)\n    return vectorestore\ndef get_conversation_chain(vectorstore):\n    llm = ChatOpenAI()\n    memory = ConversationBufferMemory(memory_key=\"chat_history\", return_messages=True)\n    conversation_chain  = ConversationalRetrievalChain.from_llm(\n        llm = llm,\n        retriever=vectorstore.as_retriever(),",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_conversation_chain",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_conversation_chain(vectorstore):\n    llm = ChatOpenAI()\n    memory = ConversationBufferMemory(memory_key=\"chat_history\", return_messages=True)\n    conversation_chain  = ConversationalRetrievalChain.from_llm(\n        llm = llm,\n        retriever=vectorstore.as_retriever(),\n        memory = memory\n    )\n    return conversation_chain\ndef handle_input(question):",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "handle_input",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def handle_input(question):\n    response = st.session_state.conversation({'question':question})\n    st.session_state.chat_history = response['chat_history']\n    for i, message in enumerate(st.session_state.chat_history):\n        if i % 2 == 0:\n            st.write(user_template.replace(\"{{MSG}}\", message.content), unsafe_allow_html=True)\n        else:\n            st.write(bot_template.replace(\"{{MSG}}\", message.content), unsafe_allow_html=True)\ndef main():\n    load_dotenv()",
         "detail": "app",
         "documentation": {}
     },
@@ -47,7 +191,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def main():\n    load_dotenv()\n    st.set_page_config(page_title=\"Chat PDF\", page_icon=\":books:\")\n    st.title(\":books: Chat with multiple PDF's :books:\")\n    question = st.text_input(\"Ask a question about your documents\")\n    with st.sidebar:\n        st.subheader(\"Enter your pdf files here\")\n        uploaded_files = st.file_uploader(\"Upload your pdf here and click process\", accept_multiple_files=True)\n        if st.button(\"Process\"):\n            if not uploaded_files:",
+        "peekOfCode": "def main():\n    load_dotenv()\n    st.set_page_config(page_title=\"Chat PDF\", page_icon=\":books:\")\n    st.write(css, unsafe_allow_html=True)\n    if 'conversation' not in st.session_state:\n        st.session_state.conversation = None\n    if 'chat_history' not in st.session_state:\n        st.session_state.chat_history = None\n    st.title(\":books: Chat with multiple PDF's :books:\")\n    question = st.text_input(\"Ask a question about your documents\")",
         "detail": "app",
         "documentation": {}
     }
